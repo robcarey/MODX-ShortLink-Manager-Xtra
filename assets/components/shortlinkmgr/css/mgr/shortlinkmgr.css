@@ -1,0 +1,99 @@
+/* ShortLink Manager - Manager CSS */
+
+
+.shortlinkmgr-info-bar {
+    padding: 8px 12px;
+    background: #f0f4f8;
+    border-bottom: 1px solid #d0d9e3;
+    font-size: 12px;
+    color: #555;
+}
+
+.shortlinkmgr-info-bar code {
+    background: #e0e8f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #2c5f8a;
+}
+
+.shortlinkmgr-info-panel {
+    margin-bottom: 0;
+}
+
+/* ── Toggle switch (published column) ────────────────────────────── */
+.slm-toggle {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.slm-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.slm-toggle-slider {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #ccc;
+    border-radius: 18px;
+    transition: background .2s;
+}
+.slm-toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform .2s;
+}
+.slm-toggle input:checked + .slm-toggle-slider {
+    background: #27ae60;
+}
+.slm-toggle input:checked + .slm-toggle-slider::before {
+    transform: translateX(16px);
+}
+
+/* ── Action buttons ─────────────────────────────────────────────── */
+.slm-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: 0 2px;
+    padding: 0;
+    border: 1px solid #c0c9d4;
+    border-radius: 4px;
+    background: #f5f7fa;
+    color: #555;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 13px;
+}
+.slm-action-btn:hover {
+    background: #e8ecf1;
+    border-color: #a0aab4;
+}
+.slm-action-btn.slm-action-edit:hover {
+    color: #2980b9;
+    border-color: #2980b9;
+}
+.slm-action-btn.slm-action-delete:hover {
+    color: #c0392b;
+    border-color: #c0392b;
+}
+
+/* Expired row highlight */
+.shortlinkmgr-row-expired {
+    color: #c0392b;
+    font-style: italic;
+}

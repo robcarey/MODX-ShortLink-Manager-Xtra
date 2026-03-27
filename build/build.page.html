@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortLink Manager — Package Builder</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #1e2330;
+            color: #d4dbe8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .card {
+            background: #252b3b;
+            border: 1px solid #333d52;
+            border-radius: 10px;
+            padding: 36px 40px;
+            max-width: 680px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 22px; color: #e8edf5; margin-bottom: 6px; }
+        h1 span { color: #4a9eff; }
+        .subtitle { font-size: 13px; color: #7a8aaa; margin-bottom: 28px; }
+
+        .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 26px;
+            border-radius: 7px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+        .btn:hover { opacity: 0.88; }
+        .btn-v2 { background: #2563eb; color: #fff; }
+        .btn-v3 { background: #374151; color: #9ca3af; border: 1px solid #4b5563; cursor: not-allowed; }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-stable { background: #166534; color: #86efac; }
+        .badge-soon   { background: #3f3f46; color: #a1a1aa; }
+
+        .info-box {
+            background: #1a2035;
+            border: 1px solid #2d3a52;
+            border-radius: 6px;
+            padding: 14px 18px;
+            font-size: 12px;
+            color: #8a9bb8;
+            line-height: 1.7;
+        }
+        .info-box strong { color: #c8d3e8; }
+        .info-box code {
+            background: #0f1520;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #7dd3fc;
+            font-size: 11px;
+        }
+
+        #output-section { display: none; max-width: 680px; width: 100%; }
+        #output-section.visible { display: block; }
+        #output-frame {
+            width: 100%;
+            height: 420px;
+            border: 1px solid #333d52;
+            border-radius: 8px;
+            background: #0d1117;
+        }
+        .output-label {
+            font-size: 12px;
+            color: #7a8aaa;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .spinner {
+            width: 14px; height: 14px;
+            border: 2px solid #4a9eff44;
+            border-top-color: #4a9eff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>ShortLink Manager <span>Package Builder</span></h1>
+    <p class="subtitle">Namespace: <code style="color:#7dd3fc;font-family:monospace;">shortlinkmgr</code> &nbsp;·&nbsp; Root: <code style="color:#7dd3fc;font-family:monospace;">_shortlink/</code></p>
+
+    <div class="btn-row">
+        <!-- MODX 2.x Build -->
+        <button class="btn btn-v2" onclick="runBuild(2)">
+            &#128230; Build MODX 2.x Package
+            <span class="badge badge-stable">Stable</span>
+        </button>
+
+        <!-- MODX 3.x Build — not yet implemented -->
+        <button class="btn btn-v3" disabled title="MODX 3.x build not yet implemented">
+            &#128230; Build MODX 3.x Package
+            <span class="badge badge-soon">Coming Soon</span>
+        </button>
+    </div>
+
+    <div class="info-box">
+        <strong>Output location:</strong> The built <code>.transport.zip</code> is deposited in
+        <code>{MODX_CORE_PATH}/packages/</code><br>
+        <strong>To install:</strong> MODX Manager → Extras → Installer → Upload Package → select the zip.<br>
+        <strong>Note:</strong> Run this page from within the MODX site (e.g.,
+        <code>https://shortlink/_shortlink/build/build.page.html</code>).
+        The build script bootstraps MODX from the parent directory.
+    </div>
+</div>
+
+<div id="output-section">
+    <div class="output-label">
+        <div class="spinner" id="spinner"></div>
+        <span id="output-label-text">Building...</span>
+    </div>
+    <iframe id="output-frame" name="build-output" title="Build output"></iframe>
+</div>
+
+<script>
+function runBuild(ver) {
+    var section = document.getElementById('output-section');
+    var spinner = document.getElementById('spinner');
+    var label   = document.getElementById('output-label-text');
+
+    section.classList.add('visible');
+    spinner.style.display = 'block';
+    label.textContent = 'Building MODX ' + ver + '.x package...';
+
+    var frame = document.getElementById('output-frame');
+    frame.src = 'build.transport.php?modx_ver=' + ver + '&_=' + Date.now();
+
+    frame.onload = function () {
+        spinner.style.display = 'none';
+        label.textContent = 'Build complete. See output above.';
+    };
+}
+</script>
+
+</body>
+</html>

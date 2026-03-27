@@ -1,0 +1,16 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archives / build artifacts
+*.zip
+*.transport.zip
+
+# Temp / import files
+*.csv

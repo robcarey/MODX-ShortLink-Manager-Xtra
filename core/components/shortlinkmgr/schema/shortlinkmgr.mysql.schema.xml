@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="shortlinkmgr" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" version="1.0">
+
+    <object class="ShortlinkMgrLink" table="shortlinkmgr_links" extends="xPDOSimpleObject">
+        <field key="shortcode"         dbtype="varchar"  precision="32"   phptype="string"  null="false" default=""  index="unique" />
+        <field key="title"             dbtype="varchar"  precision="255"  phptype="string"  null="true"  default="" />
+        <field key="description"       dbtype="text"                      phptype="string"  null="true" />
+        <field key="published"         dbtype="tinyint"  precision="1"    phptype="integer" null="false" default="1" />
+        <field key="redirect_id"       dbtype="int"      precision="10"   phptype="integer" null="true" />
+        <field key="redirect_url"      dbtype="varchar"  precision="2048" phptype="string"  null="true" />
+        <field key="redirect_type"     dbtype="int"      precision="3"    phptype="integer" null="false" default="302" />
+        <field key="utm_source"        dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="utm_medium"        dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="utm_campaign"      dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="utm_term"          dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="utm_content"       dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="anchor"            dbtype="varchar"  precision="255"  phptype="string"  null="true" />
+        <field key="additional_params" dbtype="text"                      phptype="string"  null="true" />
+        <field key="click_count"       dbtype="int"      precision="10"   phptype="integer" null="false" default="0" />
+        <field key="expires_at"        dbtype="datetime"                  phptype="datetime" null="true" />
+        <field key="created_by"        dbtype="int"      precision="10"   phptype="integer" null="false" default="0" />
+        <field key="created_at"        dbtype="datetime"                  phptype="datetime" null="true" />
+        <field key="updated_at"        dbtype="datetime"                  phptype="datetime" null="true" />
+
+        <index alias="shortcode" name="shortcode" primary="false" unique="true" type="BTREE">
+            <column key="shortcode" length="" collation="A" null="false" />
+        </index>
+
+        <composite alias="Clicks" class="ShortlinkMgrClick" local="id" foreign="link_id" cardinality="many" owner="local" />
+    </object>
+
+    <object class="ShortlinkMgrClick" table="shortlinkmgr_clicks" extends="xPDOSimpleObject">
+        <field key="link_id"    dbtype="int"      precision="10"   phptype="integer" null="false" default="0" index="index" />
+        <field key="clicked_at" dbtype="datetime"                  phptype="datetime" null="true" />
+        <field key="ip_address" dbtype="varchar"  precision="45"   phptype="string"  null="true" />
+        <field key="referrer"   dbtype="varchar"  precision="2048" phptype="string"  null="true" />
+        <field key="user_agent" dbtype="varchar"  precision="512"  phptype="string"  null="true" />
+
+        <index alias="link_id" name="link_id" primary="false" unique="false" type="BTREE">
+            <column key="link_id" length="" collation="A" null="false" />
+        </index>
+
+        <aggregate alias="Link" class="ShortlinkMgrLink" local="link_id" foreign="id" cardinality="one" owner="foreign" />
+    </object>
+
+</model>
