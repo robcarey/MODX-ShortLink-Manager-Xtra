@@ -2,7 +2,7 @@
 
 All notable changes to ShortLink Manager will be documented in this file.
 
-## [1.0.3-pl] — 2026-03-30
+## [1.0.2-pl] — 2026-03-30
 
 ### Added — QR Code Generation
 
