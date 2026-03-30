@@ -52,7 +52,15 @@ All settings are organised by area — QR Code appearance, URL configuration, sh
 - MODX Revolution 2.8+
 - PHP 8.1+
 - MySQL 5.7+ or MariaDB 10.3+
-- ext-gd (recommended, for PNG export)
+
+### PHP Extensions
+
+| Extension | Required? | Purpose |
+|-----------|-----------|---------|
+| mbstring | Required | QR code data encoding |
+| json | Required | Internal settings handling (standard on most servers) |
+| gd | Recommended | PNG export. If missing, SVG generation still works — PNG is skipped gracefully |
+| imagick | Optional | Rasterises the SVG logo into PNG output. If missing, place a `.png` version of your logo alongside the `.svg` as a fallback, or the logo is simply omitted from the PNG. SVG logo embedding always works regardless |
 
 ## Installation
 
