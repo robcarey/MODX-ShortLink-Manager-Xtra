@@ -189,6 +189,19 @@ $builder->pack();
 $packageName  = PKG_NAME_LOWER . '-' . PKG_VERSION . '-' . PKG_RELEASE . '.transport.zip';
 $packagesPath = MODX_CORE_PATH . 'packages' . DIRECTORY_SEPARATOR;
 
+// ── Write version.json (used by GitHub README badge) ─────────────────────────
+$versionJsonPath = PKG_ROOT . 'version.json';
+$versionJson     = json_encode(array(
+    'name'    => PKG_NAME,
+    'version' => PKG_VERSION . '-' . PKG_RELEASE,
+), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n";
+
+if (file_put_contents($versionJsonPath, $versionJson) !== false) {
+    echo "\nversion.json updated: " . PKG_VERSION . "-" . PKG_RELEASE . "\n";
+} else {
+    echo "\nWARNING: Could not write version.json\n";
+}
+
 // ── Auto-increment patch for next build ───────────────────────────────────────
 $nextPatch       = $pkg_version_patch + 1;
 $versionFilePath = BUILD_PATH . 'version.inc.php';
@@ -206,7 +219,7 @@ $versionContent  = <<<PHP
 PHP;
 
 if (file_put_contents($versionFilePath, $versionContent) !== false) {
-    echo "\nVersion: " . PKG_VERSION . " → "
+    echo "version.inc.php updated: " . PKG_VERSION . " → "
         . $pkg_version_major . '.' . $pkg_version_minor . '.' . $nextPatch . " (next build)\n";
 } else {
     echo "\nWARNING: Could not write version.inc.php\n";

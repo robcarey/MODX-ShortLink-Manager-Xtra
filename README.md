@@ -1,5 +1,10 @@
 # ShortLink Manager for MODX
 
+![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frobcarey%2FMODX-ShortLink-Manager-Xtra%2Fmaster%2Fversion.json&query=%24.version&label=version&color=blue)
+![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4)
+![MODX](https://img.shields.io/badge/MODX-2.8%2B-3FAD50)
+![License](https://img.shields.io/github/license/robcarey/MODX-ShortLink-Manager-Xtra)
+
 A full-featured short link management extra for MODX Revolution. Create branded short URLs, track clicks, append UTM parameters, manage link expiry, and generate branded QR codes — all from a clean Custom Manager Page.
 
 ## Features
