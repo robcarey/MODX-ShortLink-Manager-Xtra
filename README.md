@@ -7,6 +7,33 @@
 
 A full-featured short link management extra for MODX Revolution. Create branded short URLs, track clicks, append UTM parameters, manage link expiry, and generate branded QR codes — all from a clean Custom Manager Page.
 
+## Screenshots
+
+### Basic Information
+Configure your shortcode, title, redirect target (MODX resource or external URL), and redirect type — all from a clean tabbed interface.
+
+![Basic Information](screenshots/edit-add-dialog-tab1.png)
+
+### UTM Parameters
+Built-in fields for all five Google Analytics UTM parameters. Values are automatically appended to the redirect URL.
+
+![UTM Parameters](screenshots/edit-add-dialog-tab2.png)
+
+### Advanced Options
+Set a URL anchor, additional query parameters, and an optional expiry date/time for automatic link deactivation.
+
+![Advanced Options](screenshots/edit-add-dialog-tab3.png)
+
+### QR Code Generation
+Generate branded QR codes with custom colours for data patterns, finder borders, and finder eyes. Embed a centre logo (SVG) and download as SVG (vector) or PNG.
+
+![QR Code](screenshots/edit-add-dialog-tab4.png)
+
+### System Settings
+All settings are organised by area — QR Code appearance, URL configuration, shortcode behaviour, and advanced options — each with detailed descriptions.
+
+![System Settings](screenshots/system-settings.png)
+
 ## Features
 
 - **Short URL Management** — Create and manage short links like `yoursite.com/go/promo1`
