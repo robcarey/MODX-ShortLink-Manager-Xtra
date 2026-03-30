@@ -97,3 +97,108 @@
     color: #c0392b;
     font-style: italic;
 }
+
+/* ── QR Code tab ───────────────────────────────────────────────── */
+.slm-qr-toolbar {
+    padding: 0 0 10px 0;
+}
+.slm-qr-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.slm-qr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #c0c9d4;
+    border-radius: 4px;
+    background: #f5f7fa;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: background .15s, border-color .15s;
+}
+.slm-qr-btn:hover {
+    background: #e8ecf1;
+    border-color: #a0aab4;
+    color: #333;
+    text-decoration: none;
+}
+.slm-qr-btn-generate,
+.slm-qr-btn-regenerate {
+    background: #2980b9;
+    border-color: #2471a3;
+    color: #fff;
+}
+.slm-qr-btn-generate:hover,
+.slm-qr-btn-regenerate:hover {
+    background: #2471a3;
+    border-color: #1f6391;
+    color: #fff;
+}
+.slm-qr-btn-download-svg,
+.slm-qr-btn-download-png {
+    background: #27ae60;
+    border-color: #229954;
+    color: #fff;
+}
+.slm-qr-btn-download-svg:hover,
+.slm-qr-btn-download-png:hover {
+    background: #229954;
+    border-color: #1e8449;
+    color: #fff;
+}
+
+.slm-qr-info {
+    padding: 6px 0 8px 0;
+}
+.slm-qr-encoded-url {
+    font-size: 12px;
+    color: #555;
+}
+.slm-qr-encoded-url code {
+    background: #e0e8f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #2c5f8a;
+    word-break: break-all;
+}
+
+.slm-qr-preview {
+    text-align: center;
+    padding: 10px 0;
+}
+.slm-qr-placeholder {
+    padding: 40px 20px;
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+    background: #fafbfc;
+    border: 1px dashed #d0d9e3;
+    border-radius: 4px;
+}
+.slm-qr-error {
+    color: #c0392b;
+    border-color: #e6b0aa;
+    background: #fdf2f2;
+}
+.slm-qr-image {
+    display: inline-block;
+    max-width: 100%;
+}
+.slm-qr-image svg {
+    max-width: 400px;
+    max-height: 400px;
+    width: 100%;
+    height: auto;
+    border: 1px solid #e0e8f0;
+    border-radius: 4px;
+    background: #fff;
+}

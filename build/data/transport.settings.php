@@ -48,4 +48,76 @@ $settings['remove_table_on_uninstall']->fromArray(array(
     'area'      => 'shortlinkmgr_advanced',
 ), '', true, true);
 
+// ── QR Code Settings ─────────────────────────────────────────────────────────
+
+// QR Code filename prefix
+$settings['qr_prefix'] = $modx->newObject('modSystemSetting');
+$settings['qr_prefix']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_prefix',
+    'value'     => 'qrcode',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code size (px)
+$settings['qr_size'] = $modx->newObject('modSystemSetting');
+$settings['qr_size']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_size',
+    'value'     => '800',
+    'xtype'     => 'numberfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code background colour
+$settings['qr_bg_color'] = $modx->newObject('modSystemSetting');
+$settings['qr_bg_color']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_bg_color',
+    'value'     => '#FFFFFF',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code default pattern colour
+$settings['qr_pattern_color'] = $modx->newObject('modSystemSetting');
+$settings['qr_pattern_color']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_pattern_color',
+    'value'     => '#000000',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code finder pattern outside border colour
+$settings['qr_finder_border_color'] = $modx->newObject('modSystemSetting');
+$settings['qr_finder_border_color']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_finder_border_color',
+    'value'     => '#000000',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code finder pattern inside eye colour
+$settings['qr_finder_eye_color'] = $modx->newObject('modSystemSetting');
+$settings['qr_finder_eye_color']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_finder_eye_color',
+    'value'     => '#000000',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
+// QR Code logo file path
+$settings['qr_logo_file'] = $modx->newObject('modSystemSetting');
+$settings['qr_logo_file']->fromArray(array(
+    'key'       => 'shortlinkmgr.qr_logo_file',
+    'value'     => '',
+    'xtype'     => 'textfield',
+    'namespace' => PKG_NAMESPACE,
+    'area'      => 'shortlinkmgr_qrcode',
+), '', true, true);
+
 return $settings;

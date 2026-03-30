@@ -88,3 +88,18 @@ $_lang['shortlinkmgr.import_err_header']     = 'The CSV file has no valid header
 
 // Shortcode preview
 $_lang['shortlinkmgr.preview_url'] = 'Short URL Preview';
+
+// QR Code tab
+$_lang['shortlinkmgr.tab_qrcode']           = 'QR Code';
+$_lang['shortlinkmgr.qr_preview']           = 'QR Code Preview';
+$_lang['shortlinkmgr.qr_generate']          = 'Generate QR Code';
+$_lang['shortlinkmgr.qr_regenerate']        = 'Regenerate';
+$_lang['shortlinkmgr.qr_download_svg']      = 'Download SVG';
+$_lang['shortlinkmgr.qr_download_png']      = 'Download PNG';
+$_lang['shortlinkmgr.qr_encoded_url']       = 'Encoded URL';
+$_lang['shortlinkmgr.qr_not_generated']     = 'No QR code has been generated yet. Click "Generate QR Code" to create one.';
+$_lang['shortlinkmgr.qr_generating']        = 'Generating QR code...';
+$_lang['shortlinkmgr.qr_save_first']        = 'Please save the short link first before generating a QR code.';
+$_lang['shortlinkmgr.err_qr_no_id']         = 'No short link ID provided.';
+$_lang['shortlinkmgr.err_qr_generate']      = 'QR code generation failed.';
+$_lang['shortlinkmgr.err_not_found']        = 'Short link not found.';
