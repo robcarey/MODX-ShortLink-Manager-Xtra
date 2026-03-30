@@ -2,6 +2,32 @@
 
 All notable changes to ShortLink Manager will be documented in this file.
 
+## [1.1.0-pl] — 2026-03-30
+
+### Added — QR Code Generation
+
+- **QR Code tab** on the Edit Short Link window — generates branded QR codes from the short link's full URL
+- QR codes are output as **SVG** (true vector, ideal for print) and **PNG** (raster), downloadable directly from the manager
+- **Customisable colours** via system settings:
+  - Data pattern colour (the small squares)
+  - Finder pattern outer border colour (the three large corner squares)
+  - Finder pattern inner eye colour (the centre of each finder square)
+  - Background colour (or transparent)
+- **Centre logo embedding** — point a system setting at a square SVG file and it is automatically centred in the QR code at the maximum safe size; error correction is raised to H (30% recovery) when a logo is present
+- **7 new system settings** in the "QR Code" area: filename prefix, image size, background colour, pattern colour, finder border colour, finder eye colour, and logo file path — all with detailed descriptions
+- Generated QR files are **cached** as `{prefix}-{id}.svg/.png` in `assets/components/shortlinkmgr/qr-codes/`; click **Regenerate** to rebuild after changing settings
+- QR files are **automatically deleted** when a short link is removed
+- QR Code tab is **only visible when editing** an existing link (not on create), since the full URL must exist before a code can be generated
+- Bundled [chillerlan/php-qrcode](https://github.com/chillerlan/php-qrcode) v4.4.2 (MIT) for QR encoding — no external dependencies required
+- PNG generation requires ext-gd; if not available, SVG still generates and the PNG download button is hidden gracefully
+
+### Changed
+
+- Edit window width increased from 560px to 620px to accommodate the QR Code tab content
+- PHP minimum version raised to 8.1+ (required by bundled QR library dependency)
+
+---
+
 ## [1.0.0-pl] — 2026-03-27
 
 ### Initial Release
